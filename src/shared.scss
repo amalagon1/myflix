@@ -1,0 +1,46 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+$brandColor: #e50914;
+$backgroundColor: #141414;
+$navImage:  linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+
+// @mixin margin {
+//     margin: 20px;
+// }
+*{
+    box-sizing: border-box;
+}
+
+body{
+    color: black;
+    margin: 0;
+    padding: 0;
+    border: solid blue;
+    font-family: Roboto, sans-serif;
+}
+
+.banner{
+    position: relative;
+    width: 100%;
+    border: solid red;
+    height: 500px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    color: white;
+}
+
+.featured-info{
+    position: absolute;
+   bottom: 10px;
+   padding: 0 20px;
+}
+// main{
+//     background-color: black;
+// h1{
+//     margin:0;
+// }
+// }
