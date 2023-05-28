@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Nav from './components/Nav/Navbar';
 import axios from 'axios';
-import { ABSOLUTE } from 'relateurl';
+import Movie from './components/Movie/Movie';
 
 function App() {
 
@@ -41,18 +41,28 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <main>
-        <div className="banner"
-          style={{
-            backgroundImage: "url(" + POSTER_PATH + featuredMovie.poster_path + ")",
-          }}>
-          <div className="featured-info">
-            <h1>{featuredMovie.title}</h1>
-            <p>{featuredMovie.overview}</p>
-            <button>Play Trailer</button>
-          </div>
 
-          {/* <img src={POSTER_PATH + featuredMovie.poster_path}></img> */}
+      <div className="banner"
+        style={{
+          backgroundImage: "url(" + POSTER_PATH + featuredMovie.poster_path + ")",
+        }}>
+        <div className="featured-info">
+          <h1>{featuredMovie.title}</h1>
+          <p>{featuredMovie.overview}</p>
+          <button>Play Trailer</button>
+        </div>
+
+        {/* <img src={POSTER_PATH + featuredMovie.poster_path}></img> */}
+      </div>
+      <main>
+        <div className="trending">
+          <h1>Trending movies</h1>
+          <div className="movies-wrapper">
+            {movies && movies.map((movie) =>
+              <Movie
+                title={movie.title}
+                image={IMG_PATH + movie.poster_path} />)}
+          </div>
         </div>
       </main>
 
