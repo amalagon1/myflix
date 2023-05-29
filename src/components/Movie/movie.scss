@@ -1,9 +1,12 @@
 @import "../../shared.scss";
 
 .movie-container{
-    border: solid red;
+    // border: solid red;
+    border-radius: 10px;
     // width: 200px;
     img{
         width: 220px;
+        height: 120px;
+        border-radius: 8px;
     }
 }

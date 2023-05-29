@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Nav from './components/Nav/Navbar';
 import axios from 'axios';
 import Movie from './components/Movie/Movie';
+import Carousel from './components/Carousel/Carousel';
 
 function App() {
 
@@ -57,12 +58,7 @@ function App() {
       <main>
         <div className="trending">
           <h1>Trending movies</h1>
-          <div className="movies-wrapper">
-            {movies && movies.map((movie) =>
-              <Movie
-                title={movie.title}
-                image={IMG_PATH + movie.poster_path} />)}
-          </div>
+          <Carousel movies={movies} IMG_PATH={IMG_PATH} />
         </div>
       </main>
 
