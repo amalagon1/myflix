@@ -6,14 +6,29 @@ import Carousel from './components/Carousel/Carousel';
 
 function App() {
 
+  const [scroll, setscroll] = useState(false);
+
+  const changevalueonScroll = () => {
+
+    const scrollvalue = document.documentElement.scrollTop;
+    if (scrollvalue > 80) {
+      setscroll(true);
+    }
+    else {
+      setscroll(false);
+    }
+  }
+  window.addEventListener('scroll', changevalueonScroll);
+
   const [featuredMovie, setFeaturedMovie] = useState([])
   const [movies, setMovies] = useState([])
+
 
   const KEY = process.env.REACT_APP_MOVIE_API_KEY
 
 
   const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key="
-  const POSTER_PATH = "https://image.tmdb.org/t/p/w1280"
+  const POSTER_PATH = "https://image.tmdb.org/t/p/original"
   const IMG_PATH = "https://image.tmdb.org/t/p/w300"
   // use async/await function for api call
   const fetchMovies = async () => {
@@ -41,11 +56,11 @@ function App() {
 
   return (
     <div className="App">
-      <Nav />
+      <Nav scroll={scroll} setScroll={setscroll} />
 
       <div className="banner"
         style={{
-          backgroundImage: "url(" + POSTER_PATH + featuredMovie.poster_path + ")",
+          backgroundImage: "url(" + POSTER_PATH + featuredMovie.backdrop_path + ")",
         }}>
         <div className="featured-info">
           <h1>{featuredMovie.title}</h1>
@@ -56,10 +71,11 @@ function App() {
         {/* <img src={POSTER_PATH + featuredMovie.poster_path}></img> */}
       </div>
       <main>
-        <div className="trending">
-          <h1>Trending movies</h1>
-          <Carousel movies={movies} IMG_PATH={IMG_PATH} />
-        </div>
+        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Recommended for you"} />
+        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+
       </main>
 
     </div >

@@ -3,9 +3,10 @@ import { Notifications, Search } from '@mui/icons-material'
 import React from 'react'
 import './nav.scss'
 
-const Nav = () => {
+const Nav = ({ scroll, setscroll }) => {
     return (
-        <div className='navbar'>
+        // <div className={scroll ? 'nav-dark' : 'navbar'}>
+        <div className={`navbar ${scroll && "nav-dark"}`}>
             <div className="logo">
                 <h1>MyFlix</h1>
             </div>
