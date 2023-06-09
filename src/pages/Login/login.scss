@@ -1,0 +1,62 @@
+@import "../../shared.scss";
+
+$background: rgba(000, 000, 000, 0.75);
+
+.login{
+    color: white;
+    height: 100vh;
+    background-image: url(https://bit.ly/2E3scwW);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login__secondary{
+        display: inline-block;
+        font-size: 12px;
+    width: 215px;
+
+    p{
+        display: inline-block;
+        margin-left: 4px;
+    }
+    }
+    
+}
+
+
+.modal{
+    min-width: 350px;
+    height: 400px;
+    background: $background;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    
+    .modal__content {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 60%;
+
+        button {
+            color: white;
+            background: $brandColor;
+            border: none;
+            border-radius: 3px;
+            height: 40px;
+        }
+
+    }
+}
