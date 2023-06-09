@@ -3,6 +3,10 @@ import Nav from './components/Nav/Navbar';
 import axios from 'axios';
 import Movie from './components/Movie/Movie';
 import Carousel from './components/Carousel/Carousel';
+import Home from './pages/Home';
+import Login from './pages/Login/Login';
+
+import { Route, Routes } from "react-router-dom";
 
 function App() {
 
@@ -55,30 +59,39 @@ function App() {
 
 
   return (
-    <div className="App">
-      <Nav scroll={scroll} setScroll={setscroll} />
+    // <Router>
+    //   <div className="App">
+    //     <Nav scroll={scroll} setScroll={setscroll} />
 
-      <div className="banner"
-        style={{
-          backgroundImage: "url(" + POSTER_PATH + featuredMovie.backdrop_path + ")",
-        }}>
-        <div className="featured-info">
-          <h1>{featuredMovie.title}</h1>
-          <p>{featuredMovie.overview}</p>
-          <button>Play Trailer</button>
-        </div>
+    //     <div className="banner"
+    //       style={{
+    //         backgroundImage: "url(" + POSTER_PATH + featuredMovie.backdrop_path + ")",
+    //       }}>
+    //       <div className="featured-info">
+    //         <h1>{featuredMovie.title}</h1>
+    //         <p>{featuredMovie.overview}</p>
+    //         <button>Play Trailer</button>
+    //       </div>
 
-        {/* <img src={POSTER_PATH + featuredMovie.poster_path}></img> */}
-      </div>
-      <main>
-        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
-        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Recommended for you"} />
-        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
-        <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
 
-      </main>
+    //     </div>
+    //     <main>
+    //       <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+    //       <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Recommended for you"} />
+    //       <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+    //       <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
 
-    </div >
+    //     </main>
+
+    //   </div >
+    // </Router>
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+    </Routes >
+
+
   );
 }
 
