@@ -18,6 +18,10 @@ $background: rgba(000, 000, 000, 0.75);
         font-size: 12px;
     width: 215px;
 
+    span{
+        color: grey;
+    }
+
     p{
         display: inline-block;
         margin-left: 4px;
@@ -56,6 +60,7 @@ $background: rgba(000, 000, 000, 0.75);
             border: none;
             border-radius: 3px;
             height: 40px;
+            margin-top: 20px;
         }
 
     }

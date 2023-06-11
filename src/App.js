@@ -5,6 +5,7 @@ import Movie from './components/Movie/Movie';
 import Carousel from './components/Carousel/Carousel';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup'
 
 import { Route, Routes } from "react-router-dom";
 
@@ -88,6 +89,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/signup" element={<Signup />}></Route>
       <Route path="/login" element={<Login />} />
     </Routes >
 
