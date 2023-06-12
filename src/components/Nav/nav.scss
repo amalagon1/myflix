@@ -19,7 +19,35 @@
 
     a{
         padding: 0 10px;
+        color: white;
+        text-decoration: none;
     }
+
+    ul{
+        list-style: none;
+        display: flex;
+    }
+}
+
+
+.arrow{
+    transition: transform 0.3s;
+}
+
+.profile:hover .MuiSvgIcon-root{
+    animation: spin-animation 0.3s ease-in-out;
+}
+
+.profile{
+    display: flex;
+}
+
+.left {
+    display: flex;
+}
+
+.icons{
+    display: flex;
 }
 
 .nav-dark{
@@ -27,5 +55,13 @@
  
 }
 
+@keyframes spin-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+  }
 // navbar color
 // linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);

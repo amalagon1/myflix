@@ -42,8 +42,10 @@ const Carousel = ({ movies, IMG_PATH, heading }) => {
                 <Slider ref={setSliderRef} {...sliderSettings}>
                     {movies && movies.map((movie) =>
                         <Movie
+                            key={movie.id}
                             title={movie.title}
-                            image={IMG_PATH + movie.poster_path} />)}
+                            image={IMG_PATH + movie.poster_path}
+                        />)}
                 </Slider>
             </div>
         </section>
