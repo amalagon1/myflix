@@ -1,14 +1,52 @@
 @import "../../shared.scss";
 
-.movie-container{
-    // border: solid red;
+.card-container{
+    border: solid red;
+    aspect-ratio:2/1;
     border-radius: 10px;
     width: 220px;
+    transition: transform 450ms;
+    // height: 120px;
+    position: relative;
     // width: 200px;
+    // margin-right:20px;
+    
+
+    &:hover{
+        border: yellow;
+        transform: scale(1.5);
+    }
+
+    &:hover .card-container__lower{
+        border: solid blue;
+        visibility: visible;
+    }
     img{
+        
         width: 100%;
-        height: 120px;
+        height: 100%;
         border-radius: 8px;
         object-fit: cover;
+        
     }
 }
+
+.slick-list {
+    overflow: visible !important;
+}
+.card-container__lower{
+    width: 100%;
+    // height: 10%;
+    position: absolute;
+    bottom: 25%;
+    transition: .5s;
+    visibility: hidden;
+    // border: solid blue;
+}
+.lower__icons{
+    color: blue;
+}
+
+// h1,h2,h3,p{
+//     margin: 0;
+// }

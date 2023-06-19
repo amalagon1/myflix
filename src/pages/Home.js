@@ -37,6 +37,9 @@ function Home() {
     const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key="
     const POSTER_PATH = "https://image.tmdb.org/t/p/original"
     const IMG_PATH = "https://image.tmdb.org/t/p/w300"
+
+    // const thumbnail = `https://image.tmdb.org/t/p/original +`
+
     // use async/await function for api call
     const fetchMovies = async () => {
         const data = await axios.get(`${API_URL}${KEY}`)

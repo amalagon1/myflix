@@ -13,18 +13,35 @@ const Carousel = ({ movies, IMG_PATH, heading }) => {
     const [sliderRef, setSliderRef] = useState(null)
 
     const sliderSettings = {
-        slidesToShow: 4,
+        slidesToShow: 6,
         slidesToScroll: 4,
         infinite: true,
-        // responsive: [
-        //     {
-        //         breakpoint:
-        //             settings: {
-        //         slidesToShow:
-        //             slidesToScroll
-        //     }
-        //     }
-        // ]
+        responsive: [
+            {
+                breakpoint: 1350,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5
+
+                }
+            },
+            {
+                breakpoint: 1150,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+
+                }
+            },
+            {
+                breakpoint: 930,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+
+                }
+            }
+        ]
 
     }
     return (
@@ -44,7 +61,7 @@ const Carousel = ({ movies, IMG_PATH, heading }) => {
                         <Movie
                             key={movie.id}
                             title={movie.title}
-                            image={IMG_PATH + movie.poster_path}
+                            image={IMG_PATH + movie.backdrop_path}
                         />)}
                 </Slider>
             </div>
