@@ -6,15 +6,12 @@ const Movie = ({ title, image }) => {
         <div className="card-container">
             <img src={image}></img>
             <div className="card-container__lower">
-                <div className="lower-icons">
-                    <button className="play">
-                        Play trailer
-                    </button>
-                    <button className="list">
-                        +
-                    </button>
-                </div>
-
+                <button className="play">
+                    <p>Play trailer</p>
+                </button>
+                <button className="list">
+                    +
+                </button>
             </div>
         </div>
     )

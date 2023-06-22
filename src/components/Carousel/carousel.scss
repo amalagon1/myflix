@@ -13,10 +13,13 @@
     button{
         color: white;
         background: $btnColor;
-        position: absolute;
         cursor: pointer;
         border: none;
         font-size: 1.5rem;
+    }
+
+    .btn-control{
+        position: absolute;
     }
 
    #btn-left{

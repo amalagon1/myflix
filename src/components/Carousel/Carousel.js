@@ -49,10 +49,10 @@ const Carousel = ({ movies, IMG_PATH, heading }) => {
             <h1>{heading}</h1>
             <div className="carousel-wrapper">
                 <div className="controls">
-                    <button id="btn-left" onClick={sliderRef?.slickPrev}>
+                    <button id="btn-left" className="btn-control" onClick={sliderRef?.slickPrev}>
                         <FaChevronLeft />
                     </button>
-                    <button id="btn-right" onClick={sliderRef?.slickNext}>
+                    <button id="btn-right" className="btn-control" onClick={sliderRef?.slickNext}>
                         <FaChevronRight />
                     </button>
                 </div>
