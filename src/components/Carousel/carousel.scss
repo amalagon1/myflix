@@ -10,16 +10,21 @@
 
 
 
-    button{
+    // button{
+    //     color: white;
+    //     background: $btnColor;
+    //     cursor: pointer;
+    //     border: none;
+    //     font-size: 1.5rem;
+    // }
+
+    .btn-control{
+        position: absolute;
         color: white;
         background: $btnColor;
         cursor: pointer;
         border: none;
         font-size: 1.5rem;
-    }
-
-    .btn-control{
-        position: absolute;
     }
 
    #btn-left{
