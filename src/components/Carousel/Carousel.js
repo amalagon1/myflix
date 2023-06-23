@@ -60,6 +60,7 @@ const Carousel = ({ movies, IMG_PATH, heading }) => {
                     {movies && movies.map((movie) =>
                         <Movie
                             key={movie.id}
+                            id={movie.id}
                             title={movie.title}
                             image={IMG_PATH + movie.backdrop_path}
                         />)}

@@ -1,11 +1,12 @@
 
 
 import { useState } from 'react';
-import { Notifications, Search, ArrowDropDown } from '@mui/icons-material'
+import { Notifications, Search, ArrowDropDown } from '@mui/icons-material';
+import List from '../../pages/List/List';
 import './nav.scss'
 
 import {
-    Link
+    Link, Routes, Route
 } from "react-router-dom";
 
 const Nav = ({ scroll, setscroll }) => {
@@ -36,7 +37,7 @@ const Nav = ({ scroll, setscroll }) => {
                             <Link to="/movies">Movies</Link>
                         </li>
                         <li>
-                            <Link to="/list">My List</Link>
+                            <Link to="/list" >My List</Link>
                         </li>
                     </ul>
 
@@ -58,6 +59,9 @@ const Nav = ({ scroll, setscroll }) => {
             </div>
         </div>
     )
+
+
+
 }
 
 export default Nav
