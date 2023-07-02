@@ -3,17 +3,21 @@ import Nav from '../components/Nav/Navbar'
 import axios from 'axios';
 import Movie from '../components/Movie/Movie';
 import Carousel from '../components/Carousel/Carousel';
+import List from '../pages/List/List';
 
 import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Routes,
     Link
 } from "react-router-dom";
 
 function Home() {
 
     const [scroll, setscroll] = useState(false);
+    const [list, setList] = useState([]);
+
 
     const changevalueonScroll = () => {
 
@@ -82,14 +86,15 @@ function Home() {
                 {/* <img src={POSTER_PATH + featuredMovie.poster_path}></img> */}
             </div>
             <main>
-                <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
-                <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Recommended for you"} />
-                <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
-                <Carousel movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+                <Carousel list={list} setList={setList} movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+                <Carousel list={list} setList={setList} movies={movies} IMG_PATH={IMG_PATH} heading={"Recommended for you"} />
+                <Carousel list={list} setList={setList} movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
+                <Carousel list={list} setList={setList} movies={movies} IMG_PATH={IMG_PATH} heading={"Trending movies"} />
 
             </main>
 
         </div >
+
 
 
     );

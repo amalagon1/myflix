@@ -9,10 +9,12 @@ import Signup from './pages/Signup/Signup';
 import List from './pages/List/List';
 
 import { Route, Routes } from "react-router-dom";
+import { GlobalProvider } from './context/GlobalState';
 
 function App() {
 
   const [scroll, setscroll] = useState(false);
+
 
   const changevalueonScroll = () => {
 
@@ -87,13 +89,16 @@ function App() {
 
     //   </div >
     // </Router>
+    <GlobalProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/login" element={<Login />} />
 
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="/list" element={<List />} />
-    </Routes >
+        <Route path="/list" element={<List />} />
+
+      </Routes >
+    </GlobalProvider>
 
 
   );

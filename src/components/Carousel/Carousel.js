@@ -8,7 +8,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const Carousel = ({ movies, IMG_PATH, heading }) => {
+const Carousel = ({ movies, IMG_PATH, heading, list, setList }) => {
 
     const [sliderRef, setSliderRef] = useState(null)
 
@@ -59,6 +59,8 @@ const Carousel = ({ movies, IMG_PATH, heading }) => {
                 <Slider ref={setSliderRef} {...sliderSettings}>
                     {movies && movies.map((movie) =>
                         <Movie
+                            list={list}
+                            setList={setList}
                             key={movie.id}
                             id={movie.id}
                             title={movie.title}
