@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import Nav from '../components/Nav/Navbar'
 import axios from 'axios';
 import Movie from '../components/Movie/Movie';
 import Carousel from '../components/Carousel/Carousel';
 import List from '../pages/List/List';
+import { GlobalContext } from '../context/GlobalState';
 
 import {
     BrowserRouter as Router,
@@ -17,6 +18,7 @@ function Home() {
 
     const [scroll, setscroll] = useState(false);
     const [list, setList] = useState([]);
+
 
 
     const changevalueonScroll = () => {
@@ -71,7 +73,8 @@ function Home() {
     return (
 
         <div className="homescreen">
-            <Nav scroll={scroll} setScroll={setscroll} />
+            <Nav scroll={scroll}
+                setScroll={setscroll} />
 
             <div className="banner"
                 style={{

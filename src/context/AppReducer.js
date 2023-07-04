@@ -10,7 +10,13 @@ export default (state, action) => {
                 ...state,
                 list: state.list.filter(movie => movie.id !== action.payload),
             }
+        case "ADD_VIDEO":
+            return {
+                ...state,
+                video: [action.payload, ...state.video]
+            }
         default:
             return state;
+
     }
 }

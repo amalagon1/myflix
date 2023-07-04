@@ -7,18 +7,29 @@ import { PlaceSharp } from '@mui/icons-material';
 
 const Movie = ({ title, image, id }) => {
 
-    const { addToList, removeFromList, list } = useContext(GlobalContext);
+
+    const { video, addVideo, addToList, removeFromList, list } = useContext(GlobalContext);
     const inList = list.find(movie => movie.id === id);
 
+    // function for playing video
+    // const playVideo = () => {
+    //     addVideo(movie)
+    // }
 
-    // const listDisabled = inList ? true : false;
+
+
 
     return (
         <div className="card-container">
             <h3 className="movie-title">{title}</h3>
             <img src={image}></img>
             <div className="card-container__lower">
-                <button className="lower-btn play">
+                <button
+                    // onClick={addVideo({ title })}
+                    onClick={() => {
+                        addVideo({ title })
+                    }}
+                    className="lower-btn play">
                     <PlayArrowIcon />
                 </button>
 
@@ -30,13 +41,11 @@ const Movie = ({ title, image, id }) => {
                     <button
                         onClick={() => {
                             if (inList) {
-                                // console.log("hello")
+
                                 // let filtered = list.filter(movie => movie.id !== id);
                                 // let newList = list.splice(0, list.length, ...filtered);
                                 // addToList(newList);
                                 removeFromList(id);
-                                // console.log(newList);
-
 
                             } else {
                                 addToList({ title, image, id })

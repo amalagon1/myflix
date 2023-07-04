@@ -6,7 +6,25 @@ body{
     background-color: $backgroundColor;
 }
 
-.title{
-    position: absolute;
-    margin-top: 5rem;
+h1, h2, p{
+    margin: 0;
+}
+
+// .title{
+//     position: absolute;
+//     margin-top: 5rem;
+// }
+
+.list-body{
+    color: white;
+    padding-top: 3rem;
+    
+}
+
+.results {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    padding: auto;
 }
