@@ -5,6 +5,9 @@ import Movie from '../components/Movie/Movie';
 import Carousel from '../components/Carousel/Carousel';
 import List from '../pages/List/List';
 import { GlobalContext } from '../context/GlobalState';
+import ReactPlayer from 'react-player';
+import movieTrailer from 'movie-trailer';
+
 
 import {
     BrowserRouter as Router,
@@ -16,6 +19,7 @@ import {
 
 function Home() {
 
+    // const { video, addVideo, addToList, removeFromList, list } = useContext(GlobalContext);
     const [scroll, setscroll] = useState(false);
     const [list, setList] = useState([]);
 
@@ -36,7 +40,14 @@ function Home() {
     const [featuredMovie, setFeaturedMovie] = useState([])
     const [movies, setMovies] = useState([])
 
+    const [videoURL, setVideoURL] = useState("")
 
+
+    const playVideo = (featuredMovie) => {
+        movieTrailer(featuredMovie.title).then((res) => {
+            setVideoURL(res);
+        })
+    }
     const KEY = process.env.REACT_APP_MOVIE_API_KEY
 
 
@@ -54,6 +65,7 @@ function Home() {
         console.log(movieData[0].title)
         setMovies(movieData)
         setFeaturedMovie(movieData[0]);
+        playVideo(featuredMovie)
         const poster =
             console.log(data)
     }
@@ -85,7 +97,7 @@ function Home() {
                     <p>{featuredMovie.overview}</p>
                     <button>Play Trailer</button>
                 </div>
-
+                <ReactPlayer url={videoURL} controls={true} />
                 {/* <img src={POSTER_PATH + featuredMovie.poster_path}></img> */}
             </div>
             <main>
