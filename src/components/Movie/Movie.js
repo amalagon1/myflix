@@ -4,20 +4,18 @@ import './movie.scss'
 import { useState } from 'react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { PlaceSharp } from '@mui/icons-material';
+import MoviePlayer from '../../pages/MoviePlayer/MoviePlayer';
 
-const Movie = ({ title, image, id }) => {
+const Movie = ({ title, image, movieID, setmovieID, clicked, setClicked }) => {
 
 
     const { video, addVideo, addToList, removeFromList, list } = useContext(GlobalContext);
-    const inList = list.find(movie => movie.id === id);
+    const inList = list.find(movie => movie.id === movieID);
 
     // function for playing video
     // const playVideo = () => {
     //     addVideo(movie)
     // }
-
-
-
 
     return (
         <div className="card-container">
@@ -27,7 +25,9 @@ const Movie = ({ title, image, id }) => {
                 <button
                     // onClick={addVideo({ title })}
                     onClick={() => {
-                        addVideo({ title })
+                        // addVideo({ title })
+                        setClicked(!clicked)
+                        setmovieID(movieID);
                     }}
                     className="lower-btn play">
                     <PlayArrowIcon />
@@ -45,10 +45,10 @@ const Movie = ({ title, image, id }) => {
                                 // let filtered = list.filter(movie => movie.id !== id);
                                 // let newList = list.splice(0, list.length, ...filtered);
                                 // addToList(newList);
-                                removeFromList(id);
+                                removeFromList(movieID);
 
                             } else {
-                                addToList({ title, image, id })
+                                addToList({ title, image, movieID })
                                 console.log(list)
                             }
                         }}
@@ -58,6 +58,7 @@ const Movie = ({ title, image, id }) => {
                     </button>
                 </div>
             </div>
+
         </div>
     )
 }

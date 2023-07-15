@@ -1,0 +1,10 @@
+@import "../../shared.scss";
+
+.modal {
+    border: solid white;
+    width: 80%;
+    height: 600px;
+    color: white;
+    display: flex;
+    align-items: center;
+}

@@ -39,27 +39,19 @@ function App() {
   const POSTER_PATH = "https://image.tmdb.org/t/p/original"
   const IMG_PATH = "https://image.tmdb.org/t/p/w300"
   // use async/await function for api call
-  const fetchMovies = async () => {
-    const data = await axios.get(`${API_URL}${KEY}`)
-    const movieData = data.data.results
-    // const featured = setMovies(0).title
-    console.log(movieData[0].title)
-    setMovies(movieData)
-    setFeaturedMovie(movieData[0]);
-    const poster =
-      console.log(data)
-  }
-
-  // const getMovies = () => {
-  //   fetch(API_URL + KEY)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(data.results)
-  //     })
+  // const fetchMovies = async () => {
+  //   const data = await axios.get(`${API_URL}${KEY}`)
+  //   const movieData = data.data.results
+  //   console.log(movieData[0].title)
+  //   setMovies(movieData)
+  //   setFeaturedMovie(movieData[0]);
+  //   const poster =
+  //     console.log(data)
   // }
-  useEffect(() => {
-    fetchMovies()
-  }, [])
+
+  // useEffect(() => {
+  //   fetchMovies()
+  // }, [])
 
 
   return (
