@@ -19,7 +19,6 @@ const List = ({ image, title, id, }) => {
     return (
         <div className="list-body">
             <Nav />
-            <MoviePlayer />
             <div >
                 <h1 className='title'>My list</h1>
                 {list && (
@@ -31,6 +30,7 @@ const List = ({ image, title, id, }) => {
                             <Movie
                                 key={movie.id}
                                 id={movie.id}
+                                movieID={movie.id}
                                 title={movie.title}
                                 image={movie.image}
                             />

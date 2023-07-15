@@ -4,8 +4,8 @@ import YouTube from 'react-youtube';
 import './moviePlayer.scss';
 
 const opts = {
-    height: '400',
-    width: '700',
+    height: '500',
+    width: '900',
     playerVars: {
         autoplay: 1,
     },
@@ -28,7 +28,6 @@ const MoviePlayer = ({ movieID }) => {
     console.log(trailerId);
     return (
         <div className="modal">
-            <h1>Hey I'm the modal</h1>
             <YouTube videoId={trailerId} opts={opts} />
         </div>
 

@@ -6,11 +6,11 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { PlaceSharp } from '@mui/icons-material';
 import MoviePlayer from '../../pages/MoviePlayer/MoviePlayer';
 
-const Movie = ({ title, image, movieID, setmovieID, clicked, setClicked }) => {
+const Movie = ({ title, image, id, movieID, setmovieID, clicked, setClicked }) => {
 
 
     const { video, addVideo, addToList, removeFromList, list } = useContext(GlobalContext);
-    const inList = list.find(movie => movie.id === movieID);
+    const inList = list.find(movie => movie.id === id);
 
     // function for playing video
     // const playVideo = () => {
@@ -45,10 +45,10 @@ const Movie = ({ title, image, movieID, setmovieID, clicked, setClicked }) => {
                                 // let filtered = list.filter(movie => movie.id !== id);
                                 // let newList = list.splice(0, list.length, ...filtered);
                                 // addToList(newList);
-                                removeFromList(movieID);
+                                removeFromList(id);
 
                             } else {
-                                addToList({ title, image, movieID })
+                                addToList({ title, image, id })
                                 console.log(list)
                             }
                         }}

@@ -73,6 +73,7 @@ const Carousel =
                                 list={list}
                                 setList={setList}
                                 key={movie.id}
+                                id={movie.id}
                                 movieID={movie.id}
                                 setmovieID={setmovieID}
                                 title={movie.title}
