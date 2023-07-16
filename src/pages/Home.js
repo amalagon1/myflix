@@ -9,6 +9,7 @@ import { GlobalContext } from '../context/GlobalState';
 import ReactPlayer from 'react-player';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 
 import {
@@ -116,6 +117,15 @@ function Home() {
                 <div className="featured-info">
                     <h1>{featuredMovie.title}</h1>
                     <p>{featuredMovie.overview}</p>
+                    <button
+                        onClick={() => {
+                            setClicked(!clicked)
+                            setmovieID(featuredMovie.id)
+                        }}
+                        className="featured-btn">
+                        <PlayArrowIcon />
+                        <p>Play</p>
+                    </button>
                     {/* <button onClick={handleMovieClick(featuredMovie)}>Play Trailer</button> */}
                 </div>
                 {/* {trailerId && <YouTube videoId={trailer} />} */}

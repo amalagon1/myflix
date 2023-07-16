@@ -4,8 +4,8 @@ import YouTube from 'react-youtube';
 import './moviePlayer.scss';
 
 const opts = {
-    height: '500',
-    width: '900',
+    height: '650',
+    width: '1000',
     playerVars: {
         autoplay: 1,
     },
