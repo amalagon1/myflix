@@ -5,10 +5,14 @@
     position: absolute;
     top: 5%;
     left: 50%;
-    border: solid white;
     margin: auto;
     color: white;
     display: flex;
     transform: translateX(-50%);
+    z-index: 200;
     // align-items: center;
+}
+
+.youtube{
+    z-index: 200;
 }

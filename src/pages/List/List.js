@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 import './list.scss';
 import Nav from '../../components/Nav/Navbar';
@@ -10,6 +10,10 @@ import MoviePlayer from '../MoviePlayer/MoviePlayer';
 
 
 const List = ({ image, title, id, }) => {
+    const [clicked, setClicked] = useState(false);
+    const [movieID, setmovieID] = useState(null)
+
+    const KEY = process.env.REACT_APP_MOVIE_API_KEY
     const IMG_PATH = "https://image.tmdb.org/t/p/w300"
     const { list } = useContext(GlobalContext);
 
@@ -18,6 +22,11 @@ const List = ({ image, title, id, }) => {
 
     return (
         <div className="list-body">
+            <div
+                onClick={() => { setClicked(!clicked) }}
+                className={clicked ? "backdrop" : "backdrop-hidden"}>
+                {clicked && <MoviePlayer movieID={movieID} KEY={KEY} />}
+            </div>
             <Nav />
             <div >
                 <h1 className='title'>My list</h1>
@@ -33,6 +42,10 @@ const List = ({ image, title, id, }) => {
                                 movieID={movie.id}
                                 title={movie.title}
                                 image={movie.image}
+                                setClicked={setClicked}
+                                clicked={clicked}
+                                movieId={movieID}
+                                setmovieID={setmovieID}
                             />
                         ))}
                     </div>

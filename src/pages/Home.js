@@ -46,20 +46,6 @@ function Home() {
     const [movies, setMovies] = useState([])
     const [movieID, setmovieID] = useState(null)
 
-
-
-    const [videoURL, setVideoURL] = useState("")
-
-    // const handleMovieClick = async (featuredMovie) => {
-    //     const response = await axios.get(
-    //         `https://api.themoviedb.org/3/movie/${featuredMovie.id}/videos?api_key=YOUR_API_KEY`
-    //     );
-
-    //     if (response.data.results.length > 0) {
-    //         setTrailerId(response.data.results[0].key);
-    //     }
-    // };
-
     const KEY = process.env.REACT_APP_MOVIE_API_KEY
 
 
@@ -76,24 +62,17 @@ function Home() {
         // const featured = setMovies(0).title
         console.log(movieData[0].id)
         setMovies(movieData)
-        setFeaturedMovie(movieData[0]);
-        // setTrailerId(movieData[0].id);
+        // setFeaturedMovie(movieData[0]);
+        const random = Math.floor(Math.random() * movieData.length)
+        setFeaturedMovie(movieData[random])
         const poster =
             console.log(data)
     }
 
-    // const setTrailer = (featuredMovie) => {
-    //     movieTrailer(featuredMovie.id).then((res) => {
-    //         setVideoURL(res);
-    //     })
-    // }
-    // const getMovies = () => {
-    //   fetch(API_URL + KEY)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       console.log(data.results)
-    //     })
-    // }
+    function truncate(string, n) {
+        return string?.length > n ? string.substr(0, n - 1) + '...' : string;
+    }
+
     useEffect(() => {
         fetchMovies()
     }, [])
@@ -116,7 +95,7 @@ function Home() {
                 }}>
                 <div className="featured-info">
                     <h1>{featuredMovie.title}</h1>
-                    <p>{featuredMovie.overview}</p>
+                    <p>{truncate(featuredMovie.overview, 150)}</p>
                     <button
                         onClick={() => {
                             setClicked(!clicked)

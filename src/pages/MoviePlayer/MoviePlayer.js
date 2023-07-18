@@ -28,7 +28,7 @@ const MoviePlayer = ({ movieID }) => {
     console.log(trailerId);
     return (
         <div className="modal">
-            <YouTube videoId={trailerId} opts={opts} />
+            <YouTube className='youtube' videoId={trailerId} opts={opts} />
         </div>
 
 

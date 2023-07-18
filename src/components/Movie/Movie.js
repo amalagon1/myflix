@@ -41,10 +41,6 @@ const Movie = ({ title, image, id, movieID, setmovieID, clicked, setClicked }) =
                     <button
                         onClick={() => {
                             if (inList) {
-
-                                // let filtered = list.filter(movie => movie.id !== id);
-                                // let newList = list.splice(0, list.length, ...filtered);
-                                // addToList(newList);
                                 removeFromList(id);
 
                             } else {
