@@ -10,6 +10,7 @@ import 'slick-carousel/slick/slick-theme.css'
 
 const Carousel =
     ({ movies,
+        topRated,
         IMG_PATH,
         heading,
         list,

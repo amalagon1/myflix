@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { auth } from '../../firebase';
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInAnonymously } from 'firebase/auth';
 
 import './login.scss';
 
@@ -41,6 +41,20 @@ const Login = () => {
 
     }
 
+    const demoLogin = (e) => {
+        e.preventDefault();
+        signInAnonymously(auth)
+            .then(() => {
+                navigate("/")
+                // Signed in..
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ...
+            });
+    }
+
 
     return (
         <div className="login">
@@ -71,6 +85,11 @@ const Login = () => {
                             onClick={onLogin}
                             className="login__btn">
                             Sign In
+                        </button>
+                        <button
+                            onClick={demoLogin}
+                            className="demo-log">
+                            Demo log-in
                         </button>
 
                     </form>

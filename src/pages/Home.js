@@ -44,6 +44,11 @@ function Home() {
 
     const [featuredMovie, setFeaturedMovie] = useState([])
     const [movies, setMovies] = useState([])
+    const [topRated, setTopRated] = useState([])
+    const [action, setAction] = useState([])
+    const [comedy, setComedy] = useState([])
+
+
     const [movieID, setmovieID] = useState(null)
 
     const KEY = process.env.REACT_APP_MOVIE_API_KEY
@@ -52,6 +57,7 @@ function Home() {
     const API_URL = "https://api.themoviedb.org/3/movie/popular?api_key="
     const POSTER_PATH = "https://image.tmdb.org/t/p/original"
     const IMG_PATH = "https://image.tmdb.org/t/p/w300"
+    const baseURL = "https://api.themoviedb.org/3";
 
     // const thumbnail = `https://image.tmdb.org/t/p/original +`
 
@@ -59,7 +65,22 @@ function Home() {
     const fetchMovies = async () => {
         const data = await axios.get(`${API_URL}${KEY}`)
         const movieData = data.data.results
-        // const featured = setMovies(0).title
+        console.log(movieData)
+
+        const res = await axios.get(`${baseURL}/movie/top_rated?api_key=${KEY}&language=en-US`)
+        const rated = res.data.results
+        setTopRated(rated)
+
+        const actionp = await axios.get(`${baseURL}/discover/movie?api_key=${KEY}&with_genres=28`)
+        const action = actionp.data.results
+        console.log(action)
+        setAction(action)
+
+        const comedyp = await axios.get(`${baseURL}/discover/movie?api_key=${KEY}&with_genres=35`)
+        const comedy = comedyp.data.results
+        setComedy(comedy)
+
+
         console.log(movieData[0].id)
         setMovies(movieData)
         // setFeaturedMovie(movieData[0]);
@@ -127,8 +148,8 @@ function Home() {
                     clicked={clicked}
                     setClicked={setClicked}
                     list={list} setList={setList}
-                    movies={movies} IMG_PATH={IMG_PATH}
-                    heading={"Recommended for you"} />
+                    movies={topRated} IMG_PATH={IMG_PATH}
+                    heading={"Top rated picks"} />
 
                 <Carousel
                     movieID={movieID}
@@ -136,8 +157,8 @@ function Home() {
                     clicked={clicked}
                     setClicked={setClicked}
                     list={list} setList={setList}
-                    movies={movies} IMG_PATH={IMG_PATH}
-                    heading={"Trending movies"} />
+                    movies={action} IMG_PATH={IMG_PATH}
+                    heading={"Action"} />
 
                 <Carousel
                     movieID={movieID}
@@ -145,9 +166,9 @@ function Home() {
                     clicked={clicked}
                     setClicked={setClicked}
                     list={list} setList={setList}
-                    movies={movies}
+                    movies={comedy}
                     IMG_PATH={IMG_PATH}
-                    heading={"Trending movies"} />
+                    heading={"Comedy"} />
 
             </main>
 
