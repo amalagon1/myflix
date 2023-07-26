@@ -6,7 +6,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { PlaceSharp } from '@mui/icons-material';
 import MoviePlayer from '../../pages/MoviePlayer/MoviePlayer';
 
-const Movie = ({ title, image, id, movieID, setmovieID, clicked, setClicked }) => {
+const Movie = ({ title, image, id, movieID, setmovieID, clicked, setClicked, handleScroll }) => {
 
 
     const { video, addVideo, addToList, removeFromList, list } = useContext(GlobalContext);
@@ -27,7 +27,8 @@ const Movie = ({ title, image, id, movieID, setmovieID, clicked, setClicked }) =
                     onClick={() => {
                         // addVideo({ title })
                         setClicked(!clicked)
-                        setmovieID(movieID);
+                        setmovieID(movieID)
+                        handleScroll();
                     }}
                     className="lower-btn play">
                     <PlayArrowIcon />

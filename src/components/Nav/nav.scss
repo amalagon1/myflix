@@ -57,6 +57,20 @@
  
 }
 
+.status_dropdown{
+    background-color: black;
+    position: absolute;
+    bottom: -45px;
+    border: solid red;
+    // height: 40px;
+    padding: 10px 5px;
+
+    // button{
+    //     padding: 10px;
+    // }
+    
+}
+
 @keyframes spin-animation {
     0% {
       transform: rotate(0deg);

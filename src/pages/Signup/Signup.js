@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, createUserDocument } from '../../firebase';
+import './signup.scss'
 
 const Signup = () => {
 
@@ -9,6 +10,7 @@ const Signup = () => {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('')
 
     const onSubmit = async (e) => {
         e.preventDefault()
@@ -35,8 +37,16 @@ const Signup = () => {
         <div className="signup">
             <section>
                 <div className="signup__content">
-                    <h1>Enter an email and password to create an account</h1>
+                    <h1 className='heading'>Watch 100+ movie trailers,<br />
+                        join now!</h1>
                     <form>
+                        <input
+                            type="Username"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required="true"
+                        />
                         <input
                             type="email"
                             placeholder="Email address"

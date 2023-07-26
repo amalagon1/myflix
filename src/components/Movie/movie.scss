@@ -82,15 +82,23 @@
     align-items: center;
 }
 
-.list{
-    position: relative;
+.list:hover .list-label{
+    display:block;
 }
 
 .list-label{
-    clip-path: polygon(0 39%, 100% 40%, 100% 75%, 69% 75%, 53% 98%, 35% 74%, 0 73%);
+    clip-path:  polygon(0% 0%, 100% 0%, 100% 75%, 69% 75%, 53% 98%, 36% 75%, 0% 75%);
     background-color: white;
+    font-size: 12px;
+    padding: 5px;
+    width: 120px;
+    color: black;
     position: absolute;
-    bottom: 80%;
+    top: -40%;
+    right: 2%;
+    text-align: center;
+    display: none;
+
 }
 
 // .lower-icons{

@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useRef } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
 import './list.scss';
 import Nav from '../../components/Nav/Navbar';
@@ -16,6 +16,12 @@ const List = ({ image, title, id, }) => {
     const KEY = process.env.REACT_APP_MOVIE_API_KEY
     const IMG_PATH = "https://image.tmdb.org/t/p/w300"
     const { list } = useContext(GlobalContext);
+
+    const ref = useRef(null);
+
+    const handleScroll = () => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     // movieTrailer('Oceans Eleven', { id: true, multi: true })
     //     .then(res => console.log(res))
@@ -37,6 +43,7 @@ const List = ({ image, title, id, }) => {
                             // <p>{movie.title}</p>
 
                             <Movie
+                                handleScroll={handleScroll}
                                 key={movie.id}
                                 id={movie.id}
                                 movieID={movie.id}

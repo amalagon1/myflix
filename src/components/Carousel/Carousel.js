@@ -18,7 +18,8 @@ const Carousel =
         clicked,
         setClicked,
         movieID,
-        setmovieID }) => {
+        setmovieID,
+        handleScroll }) => {
 
         const [sliderRef, setSliderRef] = useState(null)
 
@@ -69,6 +70,7 @@ const Carousel =
                     <Slider ref={setSliderRef} {...sliderSettings}>
                         {movies && movies.map((movie) =>
                             <Movie
+                                handleScroll={handleScroll}
                                 clicked={clicked}
                                 setClicked={setClicked}
                                 list={list}

@@ -48,10 +48,15 @@ const Nav = ({ scroll, setscroll }) => {
                 <Search />
                 <Notifications />
                 <div className="profile">
+
                     <img style={{ height: "40px" }}
                         src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="avatar" />
                     <div className="arrow">
                         <ArrowDropDown />
+                    </div>
+
+                    <div className="status_dropdown">
+                        <button>Logout</button>
                     </div>
 
                 </div>

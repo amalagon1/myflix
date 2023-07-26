@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 import Nav from '../components/Nav/Navbar'
 import axios from 'axios';
 import Movie from '../components/Movie/Movie';
@@ -27,6 +27,13 @@ function Home() {
     const [scroll, setscroll] = useState(false);
     const [list, setList] = useState([]);
     const [clicked, setClicked] = useState(false);
+
+
+    const ref = useRef(null);
+
+    const handleScroll = () => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
 
 
@@ -108,9 +115,11 @@ function Home() {
                 {clicked && <MoviePlayer movieID={movieID} KEY={KEY} />}
             </div>
             <Nav scroll={scroll}
-                setScroll={setscroll} />
+                setScroll={setscroll}
+                ref={ref} />
             {/* <ReactPlayer url={videoURL} /> */}
             <div className="banner"
+                ref={ref}
                 style={{
                     backgroundImage: "url(" + POSTER_PATH + featuredMovie.backdrop_path + ")",
                 }}>
@@ -133,6 +142,7 @@ function Home() {
             </div>
             <main>
                 <Carousel
+                    handleScroll={handleScroll}
                     movieID={movieID}
                     setmovieID={setmovieID}
                     clicked={clicked}
@@ -143,6 +153,7 @@ function Home() {
                     heading={"Trending movies"} />
 
                 <Carousel
+                    handleScroll={handleScroll}
                     movieID={movieID}
                     setmovieID={setmovieID}
                     clicked={clicked}
@@ -152,6 +163,7 @@ function Home() {
                     heading={"Top rated picks"} />
 
                 <Carousel
+                    handleScroll={handleScroll}
                     movieID={movieID}
                     setmovieID={setmovieID}
                     clicked={clicked}
@@ -161,6 +173,7 @@ function Home() {
                     heading={"Action"} />
 
                 <Carousel
+                    handleScroll={handleScroll}
                     movieID={movieID}
                     setmovieID={setmovieID}
                     clicked={clicked}
