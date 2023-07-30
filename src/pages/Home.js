@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext, useRef } from 'react';
-import Nav from '../components/Nav/Navbar'
+import Nav from '../components/Nav/Navbar';
+import Search from '../components/Search/Search';
 import axios from 'axios';
 import Movie from '../components/Movie/Movie';
 import MoviePlayer from './MoviePlayer/MoviePlayer';
@@ -27,6 +28,7 @@ function Home() {
     const [scroll, setscroll] = useState(false);
     const [list, setList] = useState([]);
     const [clicked, setClicked] = useState(false);
+    const [search, setSearch] = useState("")
 
 
     const ref = useRef(null);

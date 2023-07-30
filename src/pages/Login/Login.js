@@ -30,7 +30,7 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                navigate("/")
+                navigate("/home")
                 console.log(user);
             })
             .catch((error) => {
@@ -45,7 +45,7 @@ const Login = () => {
         e.preventDefault();
         signInAnonymously(auth)
             .then(() => {
-                navigate("/")
+                navigate("/home")
                 // Signed in..
             })
             .catch((error) => {
@@ -58,7 +58,7 @@ const Login = () => {
 
     return (
         <div className="login">
-            <div className="modal">
+            <div className="modal-login">
                 <div className="modal__content">
                     <h1>Sign In</h1>
                     <form>

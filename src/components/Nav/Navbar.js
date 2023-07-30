@@ -1,7 +1,9 @@
 
 
-import { useState } from 'react';
+import { useState, } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { Notifications, Search, ArrowDropDown } from '@mui/icons-material';
+import { getAuth, signOut } from "firebase/auth";
 import List from '../../pages/List/List';
 import './nav.scss'
 
@@ -13,9 +15,21 @@ const Nav = ({ scroll, setscroll }) => {
 
     const [hovered, setHovered] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleHover = () => {
         setHovered(!hovered);
     };
+
+    const logout = () => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            navigate("/")
+            // Sign-out successful.
+        }).catch((error) => {
+            // An error happened.
+        });
+    }
 
     return (
         // <div className={scroll ? 'nav-dark' : 'navbar'}>
@@ -28,13 +42,7 @@ const Nav = ({ scroll, setscroll }) => {
                 <div>
                     <ul className='links'>
                         <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/tv">TV Shows</Link>
-                        </li>
-                        <li>
-                            <Link to="/movies">Movies</Link>
+                            <Link to="/home">Home</Link>
                         </li>
                         <li>
                             <Link to="/list" >My List</Link>
@@ -56,7 +64,7 @@ const Nav = ({ scroll, setscroll }) => {
                     </div>
 
                     <div className="status_dropdown">
-                        <button>Logout</button>
+                        <button onClick={logout}>Logout</button>
                     </div>
 
                 </div>

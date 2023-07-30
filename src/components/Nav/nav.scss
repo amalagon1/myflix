@@ -40,7 +40,19 @@
 }
 
 .profile{
-    display: flex;
+    position: relative;
+    display: inline-block;
+
+    img{
+        display: inline-block;
+    }
+    .arrow{
+        display: inline-block;
+    }
+}
+
+.profile:hover .status_dropdown{
+    display: block;
 }
 
 .left {
@@ -60,16 +72,27 @@
 .status_dropdown{
     background-color: black;
     position: absolute;
-    bottom: -45px;
+    // bottom: -45px;
     border: solid red;
     // height: 40px;
     padding: 10px 5px;
+    display: none;   
 
-    // button{
-    //     padding: 10px;
-    // }
-    
+    button{
+        cursor: pointer;
+    }
 }
+
+
+// .status_dropdown-show{
+//     background-color: black;
+//     position: absolute;
+//     bottom: -45px;
+//     border: solid red;
+//     // height: 40px;
+//     padding: 10px 5px;
+//     display: block;   
+// }
 
 @keyframes spin-animation {
     0% {
