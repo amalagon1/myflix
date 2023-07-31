@@ -5,7 +5,7 @@ import './moviePlayer.scss';
 
 const opts = {
     height: '650',
-    width: '1000',
+    width: '1000px',
     playerVars: {
         autoplay: 1,
     },
@@ -27,7 +27,7 @@ const MoviePlayer = ({ movieID }) => {
     }, [])
     console.log(trailerId);
     return (
-        <div className="modal">
+        <div className="modal modal-youtube">
             <YouTube className='youtube' videoId={trailerId} opts={opts} />
         </div>
 

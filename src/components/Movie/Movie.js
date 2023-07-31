@@ -19,7 +19,9 @@ const Movie = ({ title, image, id, movieID, setmovieID, clicked, setClicked, han
 
     return (
         <div className="card-container">
-            <h3 className="movie-title">{title}</h3>
+            <div className="top">
+                <h3 className="movie-title">{title}</h3>
+            </div>
             <img src={image}></img>
             <div className="card-container__lower">
                 <button
